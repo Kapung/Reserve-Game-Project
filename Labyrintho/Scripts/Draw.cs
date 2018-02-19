@@ -12,6 +12,12 @@ namespace Labyrintho
         public Brush brush;
         public Location location;
 
+        //Default
+        public Draw(float position_X, float position_Y, float x_width, float x_height) : this(position_X, position_Y, x_width, x_height, new SolidBrush(Color.DarkSeaGreen), null)
+        {
+
+        }
+
         //Draw
         public Draw(float position_X, float position_Y, float width, float height, Brush brush, Image src)
         {

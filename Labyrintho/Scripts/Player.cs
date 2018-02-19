@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Labyrintho.Screens;
 
 namespace Labyrintho.Scripts
 {
@@ -18,10 +19,10 @@ namespace Labyrintho.Scripts
         public bool victorious { get; private set; }
 
         //Player sprite graphics      
-        private Image look_up = Labyrintho.Properties.Resources.look_up;
-        private Image look_down = Labyrintho.Properties.Resources.look_down;
-        private Image look_left = Labyrintho.Properties.Resources.look_left;
-        private Image look_right = Labyrintho.Properties.Resources.look_right;
+        private Image look_up = Properties.Resources.GCharBack;
+        private Image look_down = Properties.Resources.GCharFront;
+        private Image look_left = Properties.Resources.GCharLeft;
+        private Image look_right = Properties.Resources.GCharRight;
 
         //Inventory
         public Inventory inventory { get; private set; }
@@ -31,15 +32,52 @@ namespace Labyrintho.Scripts
         {
             Left, Right, Up, Down
         }
+        private int animation_counter = 1;
 
         //Constuctor for player
-        public Player(float starting_position_x, float starting_position_y) : base(starting_position_x, starting_position_y, 1, 1, Labyrintho.Properties.Resources.look_down, 5)
+        public Player(float starting_position_x, float starting_position_y) : base(starting_position_x, starting_position_y, 1, 1, Properties.Resources.GCharFront, 5)
         {
             isAlive = true;
             hitpoints = 5;
             max_hitpoints = hitpoints;
             inventory = new Inventory();
+            Debug.WriteLine("Player spawned");
         }
+
+        //public void SpriteManager()
+        //{
+        //    switch (animation_counter)
+        //    {
+        //        case 1:
+        //            look_up = Properties.Resources.kks_up_1;
+        //            look_down = Properties.Resources.kks_down_1;
+        //            look_left = Properties.Resources.kks_left_1;
+        //            look_right = Properties.Resources.kks_right_1;
+        //            animation_counter++;
+        //            break;
+        //        case 2:
+        //            look_up = Properties.Resources.kks_up_2;
+        //            look_down = Properties.Resources.kks_down_2;
+        //            look_left = Properties.Resources.kks_left_2;
+        //            look_right = Properties.Resources.kks_right_2;
+        //            animation_counter++;
+        //            break;
+        //        case 3:
+        //            look_up = Properties.Resources.kks_up_3;
+        //            look_down = Properties.Resources.kks_down_3;
+        //            look_left = Properties.Resources.kks_left_3;
+        //            look_right = Properties.Resources.kks_right_3;
+        //            animation_counter++;
+        //            break;
+        //        case 4:
+        //            look_up = Properties.Resources.kks_up_4;
+        //            look_down = Properties.Resources.kks_down_4;
+        //            look_left = Properties.Resources.kks_left_4;
+        //            look_right = Properties.Resources.kks_right_4;
+        //            animation_counter = 1;
+        //            break;
+        //    }
+        //}
 
         //Moving
         public void Move(Navigator n, List<Draw> hostiles)
@@ -47,21 +85,25 @@ namespace Labyrintho.Scripts
             float current_position_x = location.x;
             float current_position_y = location.y;
 
-            switch(n)
+            switch (n)
             {
                 case Navigator.Left:
+                    //SpriteManager();
                     --location.x;
                     source = look_left;
                     break;
                 case Navigator.Right:
+                    //SpriteManager();
                     ++location.x;
                     source = look_right;
                     break;
                 case Navigator.Up:
+                    //SpriteManager();
                     --location.y;
                     source = look_up;
                     break;
                 case Navigator.Down:
+                    //SpriteManager();
                     ++location.y;
                     source = look_down;
                     break;
@@ -82,16 +124,77 @@ namespace Labyrintho.Scripts
                         location.y = current_position_y;
                         location.x = current_position_x;
                     }
+                    else if (d is Key key)
+                    {
+                        if (inventory.items == 5)
+                        {
+                            UI.Message("Your inventory is full");
+                        }
+                        else if (!key.hasIt)
+                        {
+                            key.PickUp(this, hostiles);
+                            GameScreen.refreshBar = true;
+                        }
+                    }
+                    else if (d is Door door)
+                    {
+                        bool isOpen = false;
+                        foreach (object o in item_list)
+                        {
+                            if (o is Key key1)
+                            {
+                                if (door == key1.door)
+                                {
+                                    inventory.inventory_items.Remove(key1);
+                                    inventory.items -= 1;
+                                    GameScreen.refreshBar = true;
+                                    hostiles.Remove(door);
+                                    isOpen = true;
+                                    UI.Message("Unlocked " + door.door_name + " door");
+                                }
+                            }
+                        }
+                        if (!isOpen)
+                        {
+                            location.y = current_position_y;
+                            location.x = current_position_x;
+                            UI.Message(door.door_name + " is locked, you need a key.");
+                        }
+                    }
+                    else if (d is EndPoint)
+                    {
+                        victorious = true;
+                    }
                 }
             }
-
-            if (location.y < 0 || location.x < 0 || location.x > 40 ||location.y > 30 )
+            //OOP checker
+            if (location.y < 0 || location.x < 0 || location.x > (39) || location.y > (19))
             {
                 location.x = current_position_x;
                 location.y = current_position_y;
             }
+        }
 
-        } 
+        int i = 0;
+        public void EnemyCollider(List<Draw>hostiles)
+        {
+            foreach (Draw d in hostiles)
+            {
+                if (location.x == d.location.x && location.y == d.location.y)
+                {
+                    if (d is Hostile hostile)
+                    {
+                        if (d is Duck duck)
+                        {
+                            i++;
+                            Debug.WriteLine("Duck hitting enemy" + i);
+                            duck.Hit(this);
+                            UI.Message("You took 1 damage");
+                        }
+                    }
+                }
+            }
+        }
 
         public void DamageTaken(int amount)
         {
@@ -100,9 +203,8 @@ namespace Labyrintho.Scripts
                 isAlive = false;
             }
             hitpoints -= amount;
-            //Add something here later
+            GameScreen.refreshBar = true;
         }
-
     }
 
 }

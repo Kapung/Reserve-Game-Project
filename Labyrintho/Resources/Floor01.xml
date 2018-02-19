@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MAP>
+	<SPAWNPOINT>
+		<X>0</X>
+		<Y>0</Y>
+	</SPAWNPOINT>
+	<HOSTILE>
+        <X>3</X>
+        <Y>5</Y>
+        <NAME>Duck</NAME>
+        <FACING>Right</FACING>
+    </HOSTILE>
+	<ENDPOINT>
+		<X>39</X>
+		<Y>19</Y>
+	</ENDPOINT>
+</MAP>

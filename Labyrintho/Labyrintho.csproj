@@ -12,6 +12,22 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +48,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>DD60CCE702A251F2F5AA786D4A7BD2F9CF57DBC1</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Labyrintho_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,42 +74,90 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Screens\MainMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\MainMenu.Designer.cs">
-      <DependentUpon>MainMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Scripts\Draw.cs" />
-    <Compile Include="Screens\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Scripts\Inventory.cs" />
-    <Compile Include="Scripts\Lightning.cs" />
-    <Compile Include="Scripts\Location.cs" />
-    <Compile Include="Screens\Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scripts\Player.cs" />
-    <Compile Include="Scripts\Wall.cs" />
-    <EmbeddedResource Include="Screens\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Screens\MainMenu.resx">
-      <DependentUpon>MainMenu.cs</DependentUpon>
+    <Compile Include="Screens\DeathMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\DeathMenu.Designer.cs">
+      <DependentUpon>DeathMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\GameScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\GameScreen.Designer.cs">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\MainMenu1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\MainMenu1.Designer.cs">
+      <DependentUpon>MainMenu1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\PauseMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\PauseMenu.Designer.cs">
+      <DependentUpon>PauseMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SelectMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\SelectMap.Designer.cs">
+      <DependentUpon>SelectMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\VictoryScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\VictoryScreen.Designer.cs">
+      <DependentUpon>VictoryScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Scripts\Darkness.cs" />
+    <Compile Include="Scripts\Door.cs" />
+    <Compile Include="Scripts\Draw.cs" />
+    <Compile Include="Scripts\Duck.cs" />
+    <Compile Include="Scripts\EndPoint.cs" />
+    <Compile Include="Scripts\Floor.cs" />
+    <Compile Include="Scripts\Hostile.cs" />
+    <Compile Include="Scripts\Inventory.cs" />
+    <Compile Include="Scripts\Key.cs" />
+    <Compile Include="Scripts\Lightning.cs" />
+    <Compile Include="Scripts\Location.cs" />
+    <Compile Include="Scripts\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts\Map.cs" />
+    <Compile Include="Scripts\Player.cs" />
+    <Compile Include="Scripts\SpawnPoint.cs" />
+    <Compile Include="Scripts\UI.cs" />
+    <Compile Include="Scripts\Wall.cs" />
+    <Compile Include="Scripts\XMLHelper.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screens\DeathMenu.resx">
+      <DependentUpon>DeathMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\GameScreen.resx">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\MainMenu1.resx">
+      <DependentUpon>MainMenu1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\PauseMenu.resx">
+      <DependentUpon>PauseMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SelectMap.resx">
+      <DependentUpon>SelectMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\VictoryScreen.resx">
+      <DependentUpon>VictoryScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Labyrintho_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -115,6 +191,114 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\look_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ladder_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ladder_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bgmusic.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\door2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bag_bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hpEmpty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hpFull.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hpHalf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bag_bar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kks_down_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kks_down_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kks_down_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kks_down_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kks_left_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kks_left_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kks_left_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kks_left_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kks_right_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kks_right_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kks_right_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kks_right_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kks_up_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kks_up_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kks_up_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kks_up_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\skull.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GCharBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GCharFront.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GCharLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GCharRight.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
