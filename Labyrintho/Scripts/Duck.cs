@@ -21,8 +21,32 @@ namespace Labyrintho.Scripts
 
         public Duck(int position_X, int position_Y, Player.Navigator navigator) : base(position_X, position_Y, Properties.Resources.kks_down_1)
         {
-            Debug.WriteLine("loaded duck");
             this.navigator = navigator;
+            SetSource();
+        }
+
+        public void SetSource()
+        {
+            switch (navigator)
+            {
+                case Player.Navigator.Up:
+                    source = look_up;
+                    break;
+                case Player.Navigator.Down:
+                    source = look_down;
+                    break;
+                case Player.Navigator.Left:
+                    source = look_left;
+                    break;
+                case Player.Navigator.Right:
+                    source = look_right;
+                    break;
+            }
+        }
+
+        public Player.Navigator getNavigator()
+        {
+            return navigator;
         }
 
         public void SpriteManager()

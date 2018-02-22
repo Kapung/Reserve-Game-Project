@@ -97,6 +97,24 @@
     <Compile Include="Screens\MainMenu1.Designer.cs">
       <DependentUpon>MainMenu1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\MapEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\MapEditor.Designer.cs">
+      <DependentUpon>MapEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\MapEditorNamer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\MapEditorNamer.Designer.cs">
+      <DependentUpon>MapEditorNamer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\MapEditorRotator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\MapEditorRotator.Designer.cs">
+      <DependentUpon>MapEditorRotator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\PauseMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +137,7 @@
     <Compile Include="Scripts\Door.cs" />
     <Compile Include="Scripts\Draw.cs" />
     <Compile Include="Scripts\Duck.cs" />
+    <Compile Include="Scripts\Editor.cs" />
     <Compile Include="Scripts\EndPoint.cs" />
     <Compile Include="Scripts\Floor.cs" />
     <Compile Include="Scripts\Hostile.cs" />
@@ -147,6 +166,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\MainMenu1.resx">
       <DependentUpon>MainMenu1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\MapEditor.resx">
+      <DependentUpon>MapEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\MapEditorNamer.resx">
+      <DependentUpon>MapEditorNamer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\MapEditorRotator.resx">
+      <DependentUpon>MapEditorRotator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\PauseMenu.resx">
       <DependentUpon>PauseMenu.cs</DependentUpon>
@@ -299,6 +327,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\GCharRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Floor03.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Floor01.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Floor02.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

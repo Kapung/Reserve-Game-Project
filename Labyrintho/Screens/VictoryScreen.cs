@@ -57,7 +57,7 @@ namespace Labyrintho.Screens
 
         private void FileCounter()
         {
-            DirectoryInfo dir = new DirectoryInfo("../../Resources/");
+            DirectoryInfo dir = new DirectoryInfo(@"../../Resources/");
             FileInfo[] file = dir.GetFiles("*.xml");
 
             foreach (FileInfo f in file)
