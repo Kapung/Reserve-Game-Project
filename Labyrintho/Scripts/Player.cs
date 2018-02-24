@@ -32,7 +32,7 @@ namespace Labyrintho.Scripts
         {
             Left, Right, Up, Down
         }
-        private int animation_counter = 1;
+     //   private int animation_counter = 1;
 
         //Constuctor for player
         public Player(float starting_position_x, float starting_position_y) : base(starting_position_x, starting_position_y, 1, 1, Properties.Resources.GCharFront, 5)
