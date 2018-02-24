@@ -16,7 +16,7 @@ namespace Labyrintho.Screens
     public partial class MapEditor : Form
     {
 
-        private Editor editor = new Scripts.Editor();
+        private Editor editor = new Editor();
         private List<Draw> map = new List<Draw>();
         private List<Rectangle> grid = new List<Rectangle>();
 
@@ -134,7 +134,7 @@ namespace Labyrintho.Screens
 
         private void FileCounter()
         {
-            DirectoryInfo dir = new DirectoryInfo(@"../../Resources/");
+            DirectoryInfo dir = new DirectoryInfo("../../Resources/");
             FileInfo[] file = dir.GetFiles("*.xml");
             counter = 0;
 

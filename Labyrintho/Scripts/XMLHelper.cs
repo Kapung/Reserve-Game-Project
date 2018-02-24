@@ -18,7 +18,7 @@ namespace Labyrintho.Scripts
         public List<Draw>Import(string f_name, Boolean putFloor)
         {
             XmlDocument document = new XmlDocument();
-            document.Load(@"../../Resources/" + f_name + ".xml");
+            document.Load("../../Resources/" + f_name + ".xml");
             //document.Load(@"../../Resources/Floor01.xml");
 
             List<Draw> map = new List<Draw>();
