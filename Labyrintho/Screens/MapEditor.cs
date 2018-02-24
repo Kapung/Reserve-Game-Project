@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Labyrintho.Scripts;
 using System.Diagnostics;
+using System.IO;
 
 namespace Labyrintho.Screens
 {
@@ -22,6 +23,7 @@ namespace Labyrintho.Screens
         private int tileSize = GameScreen.tileSize;
         private int x = 40;
         private int y = 20;
+        private int counter;
 
         //MapEditorNamer variables
         public Boolean isCanceled = false;
@@ -40,7 +42,6 @@ namespace Labyrintho.Screens
         private SpawnPoint editorSP;
         private EndPoint editorEP;
 
-
         Dictionary<string, string> TileList = new Dictionary<string, string>()
         {
             {"Wall", "Wall" },
@@ -55,6 +56,16 @@ namespace Labyrintho.Screens
         {
             InitializeComponent();
             DoubleBuffered = true;
+            FileCounter();
+            if (counter >= 10)
+            {
+                mapID.Text = "" + (counter + 1);
+            }
+            else
+            {
+                mapID.Text = "0" + (counter + 1);
+            }
+
             tileList.DataSource = new BindingSource(TileList, null);
             tileList.DisplayMember = "Value";
             tileList.ValueMember = "Key";
@@ -64,7 +75,6 @@ namespace Labyrintho.Screens
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            Debug.WriteLine("Running through");
             base.OnPaint(e);
 
             Graphics g = e.Graphics;
@@ -95,7 +105,6 @@ namespace Labyrintho.Screens
 
             foreach(Draw d in map)
             {
-                Debug.WriteLine("Drawing images");
                 if (!(d.source == null))
                 {
                     if (d is Wall wall)
@@ -123,11 +132,24 @@ namespace Labyrintho.Screens
             }
         }
 
+        private void FileCounter()
+        {
+            DirectoryInfo dir = new DirectoryInfo(@"../../Resources/");
+            FileInfo[] file = dir.GetFiles("*.xml");
+            counter = 0;
+
+            foreach (FileInfo f in file)
+            {
+                counter++;
+                //tempMaps.Add(f);
+            }
+        }
+
         private Boolean Exist<T>()
         {
             foreach(Draw d in map)
             {
-                if (tileList is T)
+                if (d is T)
                 {
                     return true;
                 }
@@ -211,7 +233,7 @@ namespace Labyrintho.Screens
                             }
                             break;
                     }
-
+                    nameTextBoxFilled = "";
                 }
             }
         }
@@ -257,6 +279,7 @@ namespace Labyrintho.Screens
                         rotator.FormClosing += MapEditorRotator_FormClosing;
                         int posX = rect.X / tileSize;
                         int posY = rect.Y / tileSize;
+                        isCanceled = false;
 
                         switch (what)
                         {
@@ -354,11 +377,25 @@ namespace Labyrintho.Screens
             if (Exist<SpawnPoint>() && Exist<EndPoint>() && nameBox.TextLength >= 1)
             {
                 Debug.WriteLine("Saving phase 1");
-                if (editor.SaveMap(nameBox.Text, map))
+                if (counter >= 10)
                 {
-                    Debug.WriteLine("Saving complete");
-                    MessageBox.Show("A floor has been succesfully created", "Proceed");
+                    if (editor.SaveMap(nameBox.Text + (counter + 1), map))
+                    {
+                        Debug.WriteLine("Saving complete");
+                        MessageBox.Show("A floor has been succesfully created", "Proceed");
+                    }
+                } else
+                {
+                    if (editor.SaveMap(nameBox.Text + 0 + (counter + 1), map))
+                    {
+                        Debug.WriteLine("Saving complete");
+                        MessageBox.Show("A floor has been succesfully created", "Proceed");
+                    }
                 }
+
+            } else
+            {
+                MessageBox.Show("Something went wrong");
             }
         }
 

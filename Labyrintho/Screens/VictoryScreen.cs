@@ -25,9 +25,17 @@ namespace Labyrintho.Screens
             counter = 0;
             this.gs = gs;
             InitializeComponent();
-            finishLabel.Text = "You finished " + gs.map.name.ToLower();
             TimeSet();
             FileCounter();
+            String finishText = "You finished " + gs.map.name.Substring(0, gs.map.name.Length - 1);
+            if (counter > 10)
+            {
+                finishLabel.Text = finishText.Substring(0, finishText.Length - 1) ;
+            }
+            else
+            {
+                finishLabel.Text = finishText;
+            }
             ChangeMap();
             if (counter < number)
             {
@@ -71,14 +79,42 @@ namespace Labyrintho.Screens
             counter = 0;
             FileCounter();
             map_name = gs.map.name;
-            string numberL = map_name.Substring(map_name.Length - 1);
+            string numberL;
+            if (counter >= 10)
+            {
+                numberL = map_name.Substring(map_name.Length - 2);
+            }
+            else
+            {
+                numberL = map_name.Substring(map_name.Length - 1);
+            }
+
             number = Int32.Parse(numberL);
             number++;
+
         }
 
         private void NextLevelButton_Click(object sender, EventArgs e)
         {
-            string new_map = map_name.Substring(0, map_name.Length - 1) + number.ToString() + "";
+            string new_map;
+
+            DirectoryInfo dir = new DirectoryInfo(@"../../Resources/");
+            FileInfo[] file = dir.GetFiles("*"+number+".xml");
+
+            foreach (FileInfo f in file)
+            {
+                map_name = f.ToString();
+            }
+
+            if (counter >= 10)
+            {
+                new_map = map_name.Substring(0, map_name.Length - 2) + number.ToString() + "";
+            }
+            else
+            {
+                new_map = map_name.Substring(0, map_name.Length - 1) + number.ToString() + "";
+            }
+
 
             Map map = new Map(new_map);
             Player p = new Player(map.spawn.location.x, map.spawn.location.y);

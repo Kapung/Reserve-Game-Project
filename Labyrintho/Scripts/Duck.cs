@@ -54,7 +54,6 @@ namespace Labyrintho.Scripts
             switch(animation_counter)
             {
                 case 1:
-                    Debug.WriteLine("Animation++");
                     look_up = Properties.Resources.kks_up_1;
                     look_down = Properties.Resources.kks_down_1;
                     look_left = Properties.Resources.kks_left_1;
@@ -91,7 +90,6 @@ namespace Labyrintho.Scripts
             {
                 case Player.Navigator.Up:
                     source = look_up;
-                    Debug.WriteLine("Duck Moving up");
                     foreach(Draw d in solid)
                     {
                         if (location.y - 1 == d.location.y && location.x == d.location.x)
@@ -119,7 +117,6 @@ namespace Labyrintho.Scripts
 
                 case Player.Navigator.Down:
                     source = look_down;
-                    Debug.WriteLine("Duck Moving down");
                     foreach (Draw d in solid)
                     {
                         if (location.y + 1 == d.location.y && location.x == d.location.x)
@@ -146,7 +143,6 @@ namespace Labyrintho.Scripts
 
                 case Player.Navigator.Left:
                     source = look_left;
-                    Debug.WriteLine("Duck Moving left");
                     foreach (Draw d in solid)
                     {
                         if (location.y == d.location.y && location.x - 1 == d.location.x)
@@ -173,7 +169,6 @@ namespace Labyrintho.Scripts
 
                 case Player.Navigator.Right:
                     source = look_right;
-                    Debug.WriteLine("Duck Moving right");
                     foreach (Draw d in solid)
                     {
                         if (location.y == d.location.y && location.x + 1 == d.location.x)

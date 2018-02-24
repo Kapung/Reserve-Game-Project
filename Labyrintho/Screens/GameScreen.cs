@@ -204,7 +204,6 @@ namespace Labyrintho.Screens
 
         }
 
-        int i = 0;
         private void clockTimer_Tick(object sender, EventArgs e)
         {
             mSeconds += 500;
@@ -221,8 +220,6 @@ namespace Labyrintho.Screens
 
                 foreach(Hostile hostile in map.hostiles)
                 {
-                    i++;
-                    Debug.WriteLine("Moving..." + i);
                     hostile.Move(drawables);
 
                     Death(); //Checks if enemy hits

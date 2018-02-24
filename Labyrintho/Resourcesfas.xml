@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MAP>
+    <WALL>
+        <X>1</X>
+        <Y>0</Y>
+    </WALL>
+    <WALL>
+        <X>1</X>
+        <Y>1</Y>
+    </WALL>
+    <WALL>
+        <X>1</X>
+        <Y>2</Y>
+    </WALL>
+    <WALL>
+        <X>0</X>
+        <Y>2</Y>
+    </WALL>
+    <SPAWNPOINT>
+        <X>0</X>
+        <Y>0</Y>
+    </SPAWNPOINT>
+    <ENDPOINT>
+        <X>0</X>
+        <Y>1</Y>
+    </ENDPOINT>
+</MAP>

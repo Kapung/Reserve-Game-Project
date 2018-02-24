@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MAP>
+    <SPAWNPOINT>
+        <X>21</X>
+        <Y>0</Y>
+    </SPAWNPOINT>
+    <ENDPOINT>
+        <X>21</X>
+        <Y>4</Y>
+    </ENDPOINT>
+</MAP>

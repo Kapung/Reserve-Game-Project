@@ -99,6 +99,7 @@
             this.Controls.Add(this.exit_button);
             this.Controls.Add(this.play_button);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainMenu1";
             this.ShowIcon = false;

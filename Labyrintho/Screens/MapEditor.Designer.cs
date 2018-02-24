@@ -36,6 +36,8 @@
             this.tileList = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.examineBox = new System.Windows.Forms.TextBox();
+            this.mapID = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -117,11 +119,32 @@
             this.examineBox.Size = new System.Drawing.Size(163, 29);
             this.examineBox.TabIndex = 8;
             // 
+            // mapID
+            // 
+            this.mapID.Enabled = false;
+            this.mapID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mapID.Location = new System.Drawing.Point(1368, 539);
+            this.mapID.Name = "mapID";
+            this.mapID.Size = new System.Drawing.Size(49, 29);
+            this.mapID.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(1335, 542);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(27, 24);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "ID";
+            // 
             // MapEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1498, 640);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.mapID);
             this.Controls.Add(this.examineBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tileList);
@@ -151,5 +174,7 @@
         private System.Windows.Forms.ComboBox tileList;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox examineBox;
+        private System.Windows.Forms.TextBox mapID;
+        private System.Windows.Forms.Label label4;
     }
 }
