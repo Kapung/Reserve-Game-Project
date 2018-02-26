@@ -2,13 +2,15 @@
 Just in case
 
 School project: 2D Labyrinth game
-
+Executable can be found in  ...\Reserve-Game-Project-master(3)\Reserve-Game-Project-master\Labyrintho\bin\Release Labyrintho.exe
 Controls: WASD to move, ESC to open pause menu
 _________________________
 
 Story
 
 You're trapped in a labyrinth having no idea who you were before or what you are doing there. Your objective is to escape through traps and hostiles you encounter in the labyrinth. Collect the keys for the corresponding door to open them. You need to find ladder up to proceed to the next floor.
+
+_________________________
 
 Buglist
 _________________________
