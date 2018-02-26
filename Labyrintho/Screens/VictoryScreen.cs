@@ -27,10 +27,10 @@ namespace Labyrintho.Screens
             InitializeComponent();
             TimeSet();
             FileCounter();
-            String finishText = "You finished " + gs.map.name.Substring(0, gs.map.name.Length - 1);
+            String finishText = "You finished " + gs.map.name;
             if (counter > 10)
             {
-                finishLabel.Text = finishText.Substring(0, finishText.Length - 1) ;
+                finishLabel.Text = finishText;
             }
             else
             {

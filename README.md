@@ -12,6 +12,7 @@ Not Fixed:
 
 1. Ducks like to run out of borders of the map
 2. DeathScreen may pop up twice after dying to abnormal ducks
+3. Build doesnt work because unknown IO error with XML
 
 Fixed:
 
