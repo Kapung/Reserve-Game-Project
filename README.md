@@ -24,7 +24,7 @@ Not Fixed:
 1. Ducks like to run out of borders of the map, prevent this by putting ducks either always run to walls and not to the map borders
 2. DeathScreen may pop up twice after dying to abnormal ducks
 3. If you delete a map between the first ID and last ID the Map Editor changes your ID to last ID even if it already exists
-4. Build may not work in some cases but mostly fixed (Check fixed 3)
+4. Everything except Next Level works
 5. Ducks may have 1 additional turn when turning around sometimes
 
 Fixed:
