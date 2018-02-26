@@ -4,6 +4,11 @@ Just in case
 School project: 2D Labyrinth game
 
 Controls: WASD to move, ESC to open pause menu
+_________________________
+
+Story
+
+You're trapped in a labyrinth having no idea who you were before or what you are doing there. Your objective is to escape through traps and hostiles you encounter in the labyrinth. Collect the keys for the corresponding door to open them. You need to find ladder up to proceed to the next floor.
 
 Buglist
 _________________________
@@ -12,7 +17,7 @@ Not Fixed:
 
 1. Ducks like to run out of borders of the map
 2. DeathScreen may pop up twice after dying to abnormal ducks
-3. Build doesnt work because unknown IO error with XML
+3. Build doesnt work because unknown IO error with XML but debug build works on Visual Studio 17
 
 Fixed:
 
