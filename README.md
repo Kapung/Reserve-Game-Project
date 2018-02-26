@@ -2,7 +2,10 @@
 Just in case
 
 School project: 2D Labyrinth game
+
 Executable can be found in  ...\Reserve-Game-Project-master(3)\Reserve-Game-Project-master\Labyrintho\bin\Release Labyrintho.exe
+
+
 Controls: WASD to move, ESC to open pause menu
 _________________________
 
